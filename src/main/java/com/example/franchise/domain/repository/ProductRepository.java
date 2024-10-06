@@ -2,6 +2,7 @@ package com.example.franchise.domain.repository;
 
 import com.example.franchise.domain.model.Product;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface ProductRepository {
@@ -17,5 +18,7 @@ public interface ProductRepository {
 	Mono<Boolean> existsSubsidiaryWithProduct(Integer productId);
 
 	Mono<Void> changeProductStockFromSubsidiary(Product product);
+
+	Flux<Product> getProductsWithGreaterStock(Integer franchiseId);
 
 }

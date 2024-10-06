@@ -1,6 +1,7 @@
 package com.example.franchise.application.web;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import com.example.franchise.domain.model.Product;
 import com.example.franchise.domain.usecase.ProductService;
 
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -46,6 +48,11 @@ public class ProductController {
 	@PatchMapping("/subsidiary")
 	public Mono<Void> changeProductStockFromSubsidiary(@RequestBody Product product) {
 		return productService.changeProductStockFromSubsidiary(product);
+	}
+	
+	@GetMapping
+	public Flux<Product> getProductsWithGreaterStock(@RequestParam("franchiseId") Integer franchiseId) {
+		return productService.getProductsWithGreaterStock(franchiseId);
 	}
 
 }

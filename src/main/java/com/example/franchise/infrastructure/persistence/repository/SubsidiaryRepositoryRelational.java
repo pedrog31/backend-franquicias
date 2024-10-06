@@ -23,4 +23,9 @@ public class SubsidiaryRepositoryRelational implements SubsidiaryRepository {
 		return subsidiaryRepositoryJpa.save(entity).map(SubsidiaryMapper::toDomain);
 	}
 
+	@Override
+	public Mono<Subsidiary> getById(Integer id) {
+		return subsidiaryRepositoryJpa.findById(id).map(SubsidiaryMapper::toDomain);
+	}
+
 }

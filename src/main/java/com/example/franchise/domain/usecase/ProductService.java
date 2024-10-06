@@ -6,6 +6,7 @@ import com.example.franchise.domain.model.Product;
 import com.example.franchise.domain.repository.ProductRepository;
 
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
@@ -38,6 +39,10 @@ public class ProductService {
 
 	public Mono<Void> changeProductStockFromSubsidiary(Product product) {
 		return productRepository.changeProductStockFromSubsidiary(product);
+	}
+
+	public Flux<Product> getProductsWithGreaterStock(Integer franchiseId) {
+		return productRepository.getProductsWithGreaterStock(franchiseId);
 	}
 
 }

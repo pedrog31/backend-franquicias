@@ -8,4 +8,6 @@ public interface SubsidiaryRepository {
 
 	Mono<Subsidiary> createSubsidiary(Subsidiary franchise, Integer franchiseId);
 
+	Mono<Subsidiary> getById(Integer id);
+
 }
