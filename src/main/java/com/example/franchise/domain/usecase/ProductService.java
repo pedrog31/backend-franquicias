@@ -45,4 +45,8 @@ public class ProductService {
 		return productRepository.getProductsWithGreaterStock(franchiseId);
 	}
 
+	public Mono<Void> changeProductName(Product product) {
+		return productRepository.changeProductName(product);
+	}
+
 }

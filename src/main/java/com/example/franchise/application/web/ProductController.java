@@ -49,6 +49,11 @@ public class ProductController {
 	public Mono<Void> changeProductStockFromSubsidiary(@RequestBody Product product) {
 		return productService.changeProductStockFromSubsidiary(product);
 	}
+
+	@PatchMapping("/name")
+	public Mono<Void> changeProductName(@RequestBody Product product) {
+		return productService.changeProductName(product);
+	}
 	
 	@GetMapping
 	public Flux<Product> getProductsWithGreaterStock(@RequestParam("franchiseId") Integer franchiseId) {

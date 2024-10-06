@@ -21,4 +21,6 @@ public interface ProductRepository {
 
 	Flux<Product> getProductsWithGreaterStock(Integer franchiseId);
 
+	Mono<Void> changeProductName(Product product);
+
 }

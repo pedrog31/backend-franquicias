@@ -77,4 +77,9 @@ public class ProductRepositoryRelational implements ProductRepository {
 				});
 	}
 
+	@Override
+	public Mono<Void> changeProductName(Product product) {
+		return productRepositoryJpa.updateName(product.getId(), product.getName());
+	}
+
 }
