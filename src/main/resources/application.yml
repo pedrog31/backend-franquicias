@@ -1,1 +1,7 @@
-spring.application.name: franchise
+spring:
+  application.name: franchise
+  jackson.default-property-inclusion: NON_NULL
+  r2dbc:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
