@@ -10,4 +10,6 @@ public interface SubsidiaryRepository {
 
 	Mono<Subsidiary> getById(Integer id);
 
+	Mono<Void> changeSubsidiaryName(Subsidiary subsidiary);
+
 }

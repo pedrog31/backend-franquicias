@@ -1,5 +1,6 @@
 package com.example.franchise.application.web;
 
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,10 @@ public class SubsidiaryController {
 	public Mono<Subsidiary> createSubsidiary(@RequestBody Subsidiary subsidiary,
 			@RequestParam("subsidiaryId") Integer subsidiaryId) {
 		return subsidiaryService.createSubsidiary(subsidiary, subsidiaryId);
+	}
+
+	@PatchMapping("/name")
+	public Mono<Void> changeSubsidiaryName(@RequestBody Subsidiary subsidiary) {
+		return subsidiaryService.changeSubsidiaryName(subsidiary);
 	}
 }

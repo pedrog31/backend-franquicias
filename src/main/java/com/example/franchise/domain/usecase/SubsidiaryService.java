@@ -15,4 +15,8 @@ public class SubsidiaryService {
 		return subsidiaryRepository.createSubsidiary(subsidiary, franchiseId);
 	}
 
+	public Mono<Void> changeSubsidiaryName(Subsidiary subsidiary) {
+		return subsidiaryRepository.changeSubsidiaryName(subsidiary);
+	}
+
 }
