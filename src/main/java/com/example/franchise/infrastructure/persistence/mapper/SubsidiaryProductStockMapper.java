@@ -10,11 +10,8 @@ import lombok.NoArgsConstructor;
 public class SubsidiaryProductStockMapper {
 
 	public static SubsidiaryProductStockEntity toEntity(Product product) {
-		return SubsidiaryProductStockEntity.builder()
-				.productId(product.getId())
-				.subsidiaryId(product.getSubsidiary().getId())
-				.quantity(product.getStockQuantity())
-				.build();
+		return SubsidiaryProductStockEntity.builder().productId(product.getId())
+				.subsidiaryId(product.getSubsidiary().getId()).quantity(product.getStockQuantity()).build();
 	}
 
 }

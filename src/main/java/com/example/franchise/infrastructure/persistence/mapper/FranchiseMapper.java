@@ -10,17 +10,11 @@ import lombok.NoArgsConstructor;
 public class FranchiseMapper {
 
 	public static FranchiseEntity toEntity(Franchise franchise) {
-		return FranchiseEntity.builder()
-				.id(franchise.getId())
-				.name(franchise.getName())
-				.build();
+		return FranchiseEntity.builder().id(franchise.getId()).name(franchise.getName()).build();
 	}
 
 	public static Franchise toDomain(FranchiseEntity franchiseEntity) {
-		return Franchise.builder()
-				.id(franchiseEntity.getId())
-				.name(franchiseEntity.getName())
-				.build();
+		return Franchise.builder().id(franchiseEntity.getId()).name(franchiseEntity.getName()).build();
 	}
 
 }

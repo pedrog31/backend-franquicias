@@ -16,11 +16,12 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/subsidiary")
 @RequiredArgsConstructor
 public class SubsidiaryController {
-	
+
 	private final SubsidiaryService subsidiaryService;
 
 	@PostMapping
-	public Mono<Subsidiary> createSubsidiary(@RequestBody Subsidiary subsidiary, @RequestParam("subsidiaryId") Integer subsidiaryId) {
+	public Mono<Subsidiary> createSubsidiary(@RequestBody Subsidiary subsidiary,
+			@RequestParam("subsidiaryId") Integer subsidiaryId) {
 		return subsidiaryService.createSubsidiary(subsidiary, subsidiaryId);
 	}
 }

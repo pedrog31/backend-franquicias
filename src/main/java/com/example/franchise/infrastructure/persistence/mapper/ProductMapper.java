@@ -10,17 +10,11 @@ import lombok.NoArgsConstructor;
 public class ProductMapper {
 
 	public static ProductEntity toEntity(Product product) {
-		return ProductEntity.builder()
-				.id(product.getId())
-				.name(product.getName())
-				.build();
+		return ProductEntity.builder().id(product.getId()).name(product.getName()).build();
 	}
 
 	public static Product toDomain(ProductEntity productEntity) {
-		return Product.builder()
-				.id(productEntity.getId())
-				.name(productEntity.getName())
-				.build();
+		return Product.builder().id(productEntity.getId()).name(productEntity.getName()).build();
 	}
 
 }

@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/franchise")
 @RequiredArgsConstructor
 public class FranchiseController {
-	
+
 	private final FranchiseService franchiseService;
 
 	@PostMapping

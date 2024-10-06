@@ -19,11 +19,11 @@ public class SubsidiaryProductStockEntity {
 
 	@Id
 	private Integer id;
-	
+
 	private Integer subsidiaryId;
-	
+
 	private Integer productId;
 
 	private Integer quantity;
-	
+
 }

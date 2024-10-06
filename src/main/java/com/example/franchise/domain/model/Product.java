@@ -12,13 +12,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-	
+
 	private Integer id;
-	
+
 	private String name;
-	
+
 	private Integer stockQuantity;
-	
+
 	private Subsidiary subsidiary;
 
 }

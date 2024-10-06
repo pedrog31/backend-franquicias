@@ -10,18 +10,12 @@ import lombok.NoArgsConstructor;
 public class SubsidiaryMapper {
 
 	public static SubsidiaryEntity toEntity(Subsidiary subsidiary, Integer franchiseId) {
-		return SubsidiaryEntity.builder()
-				.id(subsidiary.getId())
-				.name(subsidiary.getName())
-				.franchiseId(franchiseId)
+		return SubsidiaryEntity.builder().id(subsidiary.getId()).name(subsidiary.getName()).franchiseId(franchiseId)
 				.build();
 	}
 
 	public static Subsidiary toDomain(SubsidiaryEntity subsidiaryEntity) {
-		return Subsidiary.builder()
-				.id(subsidiaryEntity.getId())
-				.name(subsidiaryEntity.getName())
-				.build();
+		return Subsidiary.builder().id(subsidiaryEntity.getId()).name(subsidiaryEntity.getName()).build();
 	}
 
 }

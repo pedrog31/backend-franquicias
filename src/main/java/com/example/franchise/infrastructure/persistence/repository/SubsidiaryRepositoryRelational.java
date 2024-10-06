@@ -14,14 +14,13 @@ import reactor.core.publisher.Mono;
 @Repository
 @RequiredArgsConstructor
 public class SubsidiaryRepositoryRelational implements SubsidiaryRepository {
-	
+
 	private final SubsidiaryRepositoryJpa subsidiaryRepositoryJpa;
 
 	@Override
 	public Mono<Subsidiary> createSubsidiary(Subsidiary subsidiary, Integer franchiseId) {
 		SubsidiaryEntity entity = SubsidiaryMapper.toEntity(subsidiary, franchiseId);
-		return subsidiaryRepositoryJpa.save(entity)
-				.map(SubsidiaryMapper::toDomain);
+		return subsidiaryRepositoryJpa.save(entity).map(SubsidiaryMapper::toDomain);
 	}
 
 }

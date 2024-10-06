@@ -5,7 +5,7 @@ import com.example.franchise.domain.model.Franchise;
 import reactor.core.publisher.Mono;
 
 public interface FranchiseRepository {
-	
+
 	Mono<Franchise> createFranchise(Franchise franchise);
 
 }

@@ -12,9 +12,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Franchise {
-	
+
 	private Integer id;
-	
+
 	private String name;
 
 }

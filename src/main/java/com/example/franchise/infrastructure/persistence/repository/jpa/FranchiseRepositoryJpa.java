@@ -7,6 +7,5 @@ import com.example.franchise.infrastructure.persistence.entity.FranchiseEntity;
 
 @Repository
 public interface FranchiseRepositoryJpa extends R2dbcRepository<FranchiseEntity, Integer> {
-	
 
 }

@@ -8,9 +8,9 @@ import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
 public class FranchiseService {
-	
+
 	private final FranchiseRepository franchiseRepository;
-	
+
 	public Mono<Franchise> createFranchise(Franchise franchise) {
 		return franchiseRepository.createFranchise(franchise);
 	}

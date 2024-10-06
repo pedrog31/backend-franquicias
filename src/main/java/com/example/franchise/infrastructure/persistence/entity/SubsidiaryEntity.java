@@ -21,7 +21,7 @@ public class SubsidiaryEntity {
 	private Integer id;
 
 	private String name;
-	
+
 	private Integer franchiseId;
-	
+
 }

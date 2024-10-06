@@ -21,5 +21,5 @@ public class ProductEntity {
 	private Integer id;
 
 	private String name;
-	
+
 }

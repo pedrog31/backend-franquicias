@@ -14,6 +14,6 @@ import lombok.Setter;
 public class Subsidiary {
 
 	private Integer id;
-	
+
 	private String name;
 }

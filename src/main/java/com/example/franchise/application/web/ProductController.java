@@ -19,7 +19,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/product")
 @RequiredArgsConstructor
 public class ProductController {
-	
+
 	private final ProductService productService;
 
 	@PostMapping
@@ -38,7 +38,8 @@ public class ProductController {
 	}
 
 	@DeleteMapping("/subsidiary")
-	public Mono<Void> deleteProductFromSubsidiary(@RequestParam("productId") Integer productId, @RequestParam("subsidiaryId") Integer subsidiaryId) {
+	public Mono<Void> deleteProductFromSubsidiary(@RequestParam("productId") Integer productId,
+			@RequestParam("subsidiaryId") Integer subsidiaryId) {
 		return productService.deleteProductFromSubsidiary(productId, subsidiaryId);
 	}
 
@@ -46,4 +47,5 @@ public class ProductController {
 	public Mono<Void> changeProductStockFromSubsidiary(@RequestBody Product product) {
 		return productService.changeProductStockFromSubsidiary(product);
 	}
+
 }
