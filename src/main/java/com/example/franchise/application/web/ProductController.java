@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.franchise.domain.model.Product;
@@ -28,5 +29,15 @@ public class ProductController {
 	@DeleteMapping("/{id}")
 	public Mono<Void> deleteProduct(@PathVariable("id") Integer id) {
 		return productService.deleteProduct(id);
+	}
+
+	@PostMapping("/subsidiary")
+	public Mono<Product> addProductToSubsidiary(@RequestBody Product product) {
+		return productService.addProductToSubsidiary(product);
+	}
+
+	@DeleteMapping("/subsidiary")
+	public Mono<Void> deleteProductFromSubsidiary(@RequestParam Integer productId, @RequestParam Integer subsidiaryId) {
+		return productService.deleteProductFromSubsidiary(productId, subsidiaryId);
 	}
 }

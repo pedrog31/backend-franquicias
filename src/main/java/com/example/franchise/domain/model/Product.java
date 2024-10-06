@@ -18,5 +18,7 @@ public class Product {
 	private String name;
 	
 	private Integer stockQuantity;
+	
+	private Subsidiary subsidiary;
 
 }

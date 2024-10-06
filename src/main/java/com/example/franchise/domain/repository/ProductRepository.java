@@ -10,4 +10,8 @@ public interface ProductRepository {
 
 	Mono<Void> deleteProduct(Integer id);
 
+	Mono<Product> addProductToSubsidiary(Product product);
+
+	Mono<Void> deleteProductFromSubsidiary(Integer productId, Integer subsidiaryId);
+
 }

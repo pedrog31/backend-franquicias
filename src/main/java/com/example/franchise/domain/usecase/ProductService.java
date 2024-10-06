@@ -1,5 +1,7 @@
 package com.example.franchise.domain.usecase;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.example.franchise.domain.model.Product;
 import com.example.franchise.domain.repository.ProductRepository;
 
@@ -17,6 +19,15 @@ public class ProductService {
 
 	public Mono<Void> deleteProduct(Integer id) {
 		return productRepository.deleteProduct(id);
+	}
+
+	public Mono<Product> addProductToSubsidiary(Product product) {
+		return productRepository.addProductToSubsidiary(product);
+	}
+
+	@Transactional(rollbackFor = {Exception.class, RuntimeException.class})
+	public Mono<Void> deleteProductFromSubsidiary(Integer productId, Integer subsidiaryId) {
+		return productRepository.deleteProductFromSubsidiary(productId, subsidiaryId);
 	}
 
 }
