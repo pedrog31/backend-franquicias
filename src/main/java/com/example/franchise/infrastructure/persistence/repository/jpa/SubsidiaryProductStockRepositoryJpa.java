@@ -11,6 +11,8 @@ import reactor.core.publisher.Mono;
 public interface SubsidiaryProductStockRepositoryJpa extends R2dbcRepository<SubsidiaryProductStockEntity, Integer> {
 
 	Mono<Void> deleteByProductIdAndSubsidiaryId(Integer productId, Integer subsidiaryId);
+
+	Mono<Boolean> existsByProductId(Integer productId);
 	
 
 }

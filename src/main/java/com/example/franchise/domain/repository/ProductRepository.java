@@ -12,6 +12,8 @@ public interface ProductRepository {
 
 	Mono<Product> addProductToSubsidiary(Product product);
 
-	Mono<Void> deleteProductFromSubsidiary(Integer productId, Integer subsidiaryId);
+	Mono<Boolean> deleteProductFromSubsidiary(Integer productId, Integer subsidiaryId);
+
+	Mono<Boolean> existsSubsidiaryWithProduct(Integer productId);
 
 }

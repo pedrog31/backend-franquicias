@@ -10,9 +10,9 @@ import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
 public class ProductService {
-	
+
 	private final ProductRepository productRepository;
-	
+
 	public Mono<Product> createProduct(Product product) {
 		return productRepository.createProduct(product);
 	}
@@ -25,9 +25,15 @@ public class ProductService {
 		return productRepository.addProductToSubsidiary(product);
 	}
 
-	@Transactional(rollbackFor = {Exception.class, RuntimeException.class})
+	@Transactional(rollbackFor = { Exception.class, RuntimeException.class })
 	public Mono<Void> deleteProductFromSubsidiary(Integer productId, Integer subsidiaryId) {
-		return productRepository.deleteProductFromSubsidiary(productId, subsidiaryId);
+		return productRepository.deleteProductFromSubsidiary(productId, subsidiaryId)
+				.flatMap(v -> this.deleteProductIfDontHaveAnySubsidiary(productId));
+	}
+
+	private Mono<Void> deleteProductIfDontHaveAnySubsidiary(Integer productId) {
+		return productRepository.existsSubsidiaryWithProduct(productId)
+				.flatMap(exists -> Boolean.TRUE.equals(exists) ? Mono.empty() : deleteProduct(productId));
 	}
 
 }
