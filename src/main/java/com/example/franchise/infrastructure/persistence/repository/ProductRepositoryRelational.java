@@ -24,4 +24,9 @@ public class ProductRepositoryRelational implements ProductRepository {
 				.map(ProductMapper::toDomain);
 	}
 
+	@Override
+	public Mono<Void> deleteProduct(Integer id) {
+		return productRepositoryJpa.deleteById(id);
+	}
+
 }

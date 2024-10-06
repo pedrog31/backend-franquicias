@@ -8,4 +8,6 @@ public interface ProductRepository {
 	
 	Mono<Product> createProduct(Product franchise);
 
+	Mono<Void> deleteProduct(Integer id);
+
 }

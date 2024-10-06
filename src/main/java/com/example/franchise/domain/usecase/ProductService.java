@@ -15,4 +15,8 @@ public class ProductService {
 		return productRepository.createProduct(product);
 	}
 
+	public Mono<Void> deleteProduct(Integer id) {
+		return productRepository.deleteProduct(id);
+	}
+
 }
