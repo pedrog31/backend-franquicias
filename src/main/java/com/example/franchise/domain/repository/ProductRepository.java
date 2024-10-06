@@ -16,4 +16,6 @@ public interface ProductRepository {
 
 	Mono<Boolean> existsSubsidiaryWithProduct(Integer productId);
 
+	Mono<Void> changeProductStockFromSubsidiary(Product product);
+
 }

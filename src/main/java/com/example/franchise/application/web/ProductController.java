@@ -1,6 +1,7 @@
 package com.example.franchise.application.web;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,12 @@ public class ProductController {
 	}
 
 	@DeleteMapping("/subsidiary")
-	public Mono<Void> deleteProductFromSubsidiary(@RequestParam Integer productId, @RequestParam Integer subsidiaryId) {
+	public Mono<Void> deleteProductFromSubsidiary(@RequestParam("productId") Integer productId, @RequestParam("subsidiaryId") Integer subsidiaryId) {
 		return productService.deleteProductFromSubsidiary(productId, subsidiaryId);
+	}
+
+	@PatchMapping("/subsidiary")
+	public Mono<Void> changeProductStockFromSubsidiary(@RequestBody Product product) {
+		return productService.changeProductStockFromSubsidiary(product);
 	}
 }

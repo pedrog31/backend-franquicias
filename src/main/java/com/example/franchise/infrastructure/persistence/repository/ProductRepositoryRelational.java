@@ -40,12 +40,18 @@ public class ProductRepositoryRelational implements ProductRepository {
 
 	@Override
 	public Mono<Boolean> deleteProductFromSubsidiary(Integer productId, Integer subsidiaryId) {
-		return subsidiaryProductStockRepositoryJpa.deleteByProductIdAndSubsidiaryId(productId, subsidiaryId).thenReturn(true);
+		return subsidiaryProductStockRepositoryJpa.deleteByProductIdAndSubsidiaryId(productId, subsidiaryId);
 	}
 
 	@Override
 	public Mono<Boolean> existsSubsidiaryWithProduct(Integer productId) {
 		return subsidiaryProductStockRepositoryJpa.existsByProductId(productId);
+	}
+
+	@Override
+	public Mono<Void> changeProductStockFromSubsidiary(Product product) {
+		return subsidiaryProductStockRepositoryJpa.changeProductStockFromSubsidiary(product.getId(),
+				product.getSubsidiary().getId(), product.getStockQuantity());
 	}
 
 }

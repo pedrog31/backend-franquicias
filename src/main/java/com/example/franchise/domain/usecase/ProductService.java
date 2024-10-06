@@ -33,7 +33,11 @@ public class ProductService {
 
 	private Mono<Void> deleteProductIfDontHaveAnySubsidiary(Integer productId) {
 		return productRepository.existsSubsidiaryWithProduct(productId)
-				.flatMap(exists -> Boolean.TRUE.equals(exists) ? Mono.empty() : deleteProduct(productId));
+				.flatMap(exists -> Boolean.TRUE.equals(exists) ? Mono.empty() : this.deleteProduct(productId));
+	}
+
+	public Mono<Void> changeProductStockFromSubsidiary(Product product) {
+		return productRepository.changeProductStockFromSubsidiary(product);
 	}
 
 }
