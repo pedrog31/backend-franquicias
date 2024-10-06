@@ -1,5 +1,6 @@
 package com.example.franchise.application.web;
 
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +22,10 @@ public class FranchiseController {
 	@PostMapping
 	public Mono<Franchise> createFranchise(@RequestBody Franchise franchise) {
 		return franchiseService.createFranchise(franchise);
+	}
+
+	@PatchMapping("/name")
+	public Mono<Void> changeFranchiseName(@RequestBody Franchise franchise) {
+		return franchiseService.changeFranchiseName(franchise);
 	}
 }

@@ -8,4 +8,6 @@ public interface FranchiseRepository {
 
 	Mono<Franchise> createFranchise(Franchise franchise);
 
+	Mono<Void> changeFranchiseName(Franchise franchise);
+
 }

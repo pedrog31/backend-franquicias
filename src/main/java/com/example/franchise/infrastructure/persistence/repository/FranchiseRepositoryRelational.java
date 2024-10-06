@@ -23,4 +23,9 @@ public class FranchiseRepositoryRelational implements FranchiseRepository {
 		return franchiseRepositoryJpa.save(entity).map(FranchiseMapper::toDomain);
 	}
 
+	@Override
+	public Mono<Void> changeFranchiseName(Franchise franchise) {
+		return franchiseRepositoryJpa.updateName(franchise.getId(), franchise.getName());
+	}
+
 }

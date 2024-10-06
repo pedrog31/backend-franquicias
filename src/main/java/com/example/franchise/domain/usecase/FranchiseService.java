@@ -15,4 +15,8 @@ public class FranchiseService {
 		return franchiseRepository.createFranchise(franchise);
 	}
 
+	public Mono<Void> changeFranchiseName(Franchise franchise) {
+		return franchiseRepository.changeFranchiseName(franchise);
+	}
+
 }
