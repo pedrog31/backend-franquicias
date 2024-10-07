@@ -12,10 +12,12 @@ public class SubsidiaryService {
 	private final SubsidiaryRepository subsidiaryRepository;
 
 	public Mono<Subsidiary> createSubsidiary(Subsidiary subsidiary, Integer franchiseId) {
+		subsidiary.validate();
 		return subsidiaryRepository.createSubsidiary(subsidiary, franchiseId);
 	}
 
 	public Mono<Void> changeSubsidiaryName(Subsidiary subsidiary) {
+		subsidiary.validate();
 		return subsidiaryRepository.changeSubsidiaryName(subsidiary);
 	}
 

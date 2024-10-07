@@ -22,8 +22,8 @@ public class SubsidiaryController {
 
 	@PostMapping
 	public Mono<Subsidiary> createSubsidiary(@RequestBody Subsidiary subsidiary,
-			@RequestParam("subsidiaryId") Integer subsidiaryId) {
-		return subsidiaryService.createSubsidiary(subsidiary, subsidiaryId);
+			@RequestParam("franchiseId") Integer franchiseId) {
+		return subsidiaryService.createSubsidiary(subsidiary, franchiseId);
 	}
 
 	@PatchMapping("/name")

@@ -15,6 +15,7 @@ public class ProductService {
 	private final ProductRepository productRepository;
 
 	public Mono<Product> createProduct(Product product) {
+		product.validateProductToCreate();
 		return productRepository.createProduct(product);
 	}
 
@@ -23,6 +24,7 @@ public class ProductService {
 	}
 
 	public Mono<Product> addProductToSubsidiary(Product product) {
+		product.validateAddProductToSubsidiary();
 		return productRepository.addProductToSubsidiary(product);
 	}
 

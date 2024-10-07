@@ -12,10 +12,12 @@ public class FranchiseService {
 	private final FranchiseRepository franchiseRepository;
 
 	public Mono<Franchise> createFranchise(Franchise franchise) {
+		franchise.validate();
 		return franchiseRepository.createFranchise(franchise);
 	}
 
 	public Mono<Void> changeFranchiseName(Franchise franchise) {
+		franchise.validate();
 		return franchiseRepository.changeFranchiseName(franchise);
 	}
 
